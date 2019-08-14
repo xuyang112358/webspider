@@ -1,0 +1,17 @@
+字符串前加 u：后面字符串以 Unicode 格式 进行编码，一般用在中文字符串前面，防止因为源码储存格式问题，导致再次使用时出现乱码。
+
+字符串前加 r：去掉反斜杠的转义机制。
+
+字符串前加 b：后面字符串是bytes 类型。网络编程中，服务器和浏览器只认bytes 类型数据。
+
+title = re.sub('[%s]' % re.escape(string.punctuation), '', s)，s是需要去掉标点的字符串
+
+pickle加工数据的，可以用来存取结构化数据。举个例子：
+一个字典a = {'name':'Tom','age':22}，用pickle.dump存到本地文件，所存数据的结构就是字典，
+而普通的file.write写入文件的是字符串。读取时，pickle.load返回的是一个字典，file.read返回的是一个字符串。
+但是这件事情完全可以交给jason！
+
+s=s.replace('bcd','123')   #用123替换bcd 
+
+
+cookie只要在requests.get里加一个cookie=cookie就好了
