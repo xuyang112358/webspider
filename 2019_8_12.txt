@@ -1,0 +1,25 @@
+http://chromedriver.storage.googleapis.com/index.html   //chromedriver仓库
+
+https://github.com/mozilla/geckodriver/releases   //火狐driver的github
+
+windows下载后直接放到python的scripe文件夹里
+
+find_element_by_id系列方法只能返回节点元素，不能返回内容
+返回内容有两种：
+如果节点元素是element
+则返回元素是element.attribute('属性')
+则返回文本是element.text
+
+一般步骤：
+from selenium import webdriver
+browser = webdriver.Chrome()
+browser.get(url)
+.........
+
+
+implicitly_wait(5)属于隐式等待，5秒钟内只要找到了元素就开始执行，5秒钟后未找到，就超时；
+
+time.sleep(5)表示必须等待5秒
+
+cookie只要在requests.get里加一个cookie=cookie就好了
+
