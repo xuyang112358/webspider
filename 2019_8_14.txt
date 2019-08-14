@@ -15,3 +15,25 @@ s=s.replace('bcd','123')   #用123替换bcd
 
 
 cookie只要在requests.get里加一个cookie=cookie就好了
+
+如何用git在github上下载单个文件夹：
+例如我想要下载https://github.com/CharlesPikachu/Games上的Game7文件：
+
+1.创建要保存的文件夹
+mkdir 文件夹名称
+
+2.先进入到你要存放的路径
+cd <路径>
+
+3.连接远程仓库github
+git remote add -f origin https://github.com/CharlesPikachu/Games.git
+
+4.开启sparse checkout 模式
+git config core.sparsecheckout true
+
+5.告诉Git哪些文件或者文件夹是你真正想Check Out的
+(你可以将它们作为一个列表保存在 .git/info/sparse-checkout 文件中。)
+echo Game7 >> .git/info/sparse-checkout
+
+6.最后一步，拉取想要的分支
+git pull origin master
