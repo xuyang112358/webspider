@@ -1,0 +1,55 @@
+python生成.exe文件：
+
+我们应用pyinstaller，将我们的程序生成.exe程序。使它在没有Python的环境下，可以运行。
+
+1、Pyinstaller的安装
+Pyinstaller的官网下载地址：
+http://www.pyinstaller.org/downloads.html
+下载Pyinstaller 3.4(tar.gz)
+
+2、下载后，进入解压好的PyInstaller目录
+我的目录是C:\Users\soft\Downloads\PyInstaller-3.4\PyInstaller-3.4，使用以下命令：
+Python setup.py install
+
+3、安装完成后将PyInstaller的目录加入到系统的环境变量中后。（见6.2 配置环境变量）
+在当前目录下（我的目录C:\Users\soft\Downloads\PyInstaller-3.4\PyInstaller-3.4）
+
+4、使用以下命令：pyinstaller
+
+5、首先，我们找到游戏文件所在的目录，在该目录下，执行pyinstaller -F -w snake10.py
+输入参数的含义
+-F 表示生成单个可执行文件。
+-w 表示去掉控制台窗口，在GUI界面时非常有用。
+-p 表示你自己自定义需要加载的类路径，一般情况下用不到。
+-i 表示可执行文件的图标。
+
+我们查看游戏文件的目录，发现多出一个文件及三个文件夹
+
+6、我们进入dist文件夹，发现了我们生成的snake10.exe文件。见下图6-14。
+我们将该文件拷贝到别的windows电脑上，可以直接运行它。双击snake10.exe
+记住只能把单个.py文件生成.exe
+
+搭建vpn：
+https://order.shadowsocks.se
+
+git方法：在你想放文件的地方git bash here
+执行：
+git clone url
+
+1、进入paython项目根目录，执行以下程序就能打包pathon文件
+pyinstaller Game7.py -p Dinosaur.py -p Obstacle.py -p Scene.py --hidden-import Dinosaur.py --hidden-import Obstacle.py --hidden-import Scene.py
+拷入其他依赖文件
+
+2、多文件打包
+
+命令格式如下，下命令为一条命令，为方便显示做了分行处理：
+
+pyinstaller [主文件] -p [其他文件1] -p [其他文件2] --hidden-import [自建模块1] --hidden-import [自建模块2]# 以上为一整条命令
+
+以上文图中结构为例，在根目录打开命令窗口，输入命令：
+
+pyinstaller main.py -p mysql.py -p other.py --hidden-import mysql --hidden-import other
+
+在目录结构：“程序根目录\dist\main\” 下可以找到生成的main.exe。将其他依赖文件拷贝进入“程序根目录\dist\main\” 下，即可运行。
+
+
