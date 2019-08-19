@@ -1,0 +1,35 @@
+创建spring项目
+1、建立一个Dynamic Web Project
+
+2、在src目录下创建包com.itheima.ioc
+
+3、在包中新建一个接口interface，名字是UserDao,写个public void say();
+
+4、在包中新建实现类UserDaolmpl,建立过程中选择接口UserDao
+
+5、在src目录下新建Spring的配置文件applicationContext.xml，并在配置文件中创建一个id为
+userDao的Bean,打开spring-framework-5.1.9.RELEASE\docs\spring-framework-reference\index.html
+进入Core Technologies，找到Ioc container，选择Container Overview\Configuration Metadata
+
+复制代码
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://www.springframework.org/schema/beans
+        https://www.springframework.org/schema/beans/spring-beans-4.3.xsd" default-lazy-init="true">
+        <!-- 将指定类配置给spring，让spring创建其对象的实例 -->
+	 <bean id="userDao" class="com.itheima.ioc.UserDaoImpl"/>
+</beans>
+
+控制反转Ioc：在使用spring框架以后，对象的实例不再由调用者来创建，而是由spring容器来创建，
+spring容器会负责控制程序之间的关系，而不是由调用者的程序代码直接控制。这样，控制权由应用代码转移到了spring容器，控制权发生了反转
+，这就是控制翻转。
+
+依赖注入DI：从spring容器的角度来看，spring容器负责将被依赖对象赋值给调用者的成员变量，这相当于为调用者注入了它依赖的实例，
+这就是spring的依赖注入。
+
+ctrl shift f ：格式化代码
+alt shift s：可调用set方法的界面
+
+如果不写@override注解去直接重写方法，编译器是不会判断你是不是正确重写了父类中的方法的。
+如重写方法时参数与父类不同，程序是不会提示报错的。这会留下一个潜在的bug。
